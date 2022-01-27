@@ -20,13 +20,22 @@ const AddItem = ({items, setItems}) => {
     setNewItem("");
   };
 
+  const handleKeyPress = (code) => {
+    if ((code === "Enter" || code === "NumpadEnter") && newItem) {
+      addNewItem();
+      return;
+    }
+    return;
+  }
+
   return ( 
     <div className='addItem' >
       <input 
         type="text" 
         placeholder='Enter a new item' 
         value={newItem} 
-        onChange={e => setNewItem(e.target.value)}
+        onChange={e => setNewItem(e.target.value)} 
+        onKeyPress={e => handleKeyPress(e.code)}
       />
       <button 
         className='addBox'
