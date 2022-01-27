@@ -14,9 +14,7 @@ const AddItem = ({items, setItems}) => {
       checked: false
     }
     const newList = [...items, newItemObj];
-
     setItems(newList);
-    localStorage.setItem('grocery_list', JSON.stringify(newList));
     setNewItem("");
   };
 
